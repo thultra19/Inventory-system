@@ -175,6 +175,5 @@ print(f"Producto: {nombre_producto} | Precio: {precios_producto} | Cantidad: {ca
 
 # 🧠 Autor
 
-**Luis  Guerrero**
-
+**Luis  Guerrero** <br>
 **Julio Ariza**
