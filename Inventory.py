@@ -2,60 +2,66 @@
 nombre_producto = str(input("Ingrese el nombre del producto: "))
 
 # Variables booleanas que controlan los ciclos de validación
-# Se usan para repetir la pregunta hasta que el usuario ingrese un dato válido
 verifica_cantidad = True
 verifica_precio = True
 
 
-# ==============================
+# -----------------------------
 # VALIDACIÓN DE LA CANTIDAD
-# ==============================
+# -----------------------------
+# Este ciclo se repite hasta que el usuario ingrese una cantidad válida
 while verifica_cantidad:
 
-    # Solicita la cantidad del producto
+    # Se solicita la cantidad del producto (se guarda como texto para validarlo)
     cantidad_producto = input("Ingrese la cantidad del producto: ")
 
-    # Verifica que el valor ingresado sea un número entero positivo
-    # isdigit() verifica que solo tenga números
-    # int(cantidad_producto) > 0 verifica que sea mayor que 0
+    # Se verifica que el valor ingresado sea un número entero positivo
     if cantidad_producto.isdigit() and int(cantidad_producto) > 0:
-        cantidad_producto = int(cantidad_producto)  # Convierte el valor a entero
-        verifica_cantidad = False  # Sale del ciclo porque el dato es válido
+        
+        # Si es válido, se convierte a entero
+        cantidad_producto = int(cantidad_producto)
+        
+        # Se cambia la variable de control para salir del ciclo
+        verifica_cantidad = False
+
     else:
-        # Mensaje de error si el valor no es un número válido
+        # Si no es válido, se muestra un mensaje de error
         print(f"ven aca, cuando has visto tu que una cantidad sea '{cantidad_producto}', colocame un numero entero valido")
 
 
-# ==============================
+# -----------------------------
 # VALIDACIÓN DEL PRECIO
-# ==============================
+# -----------------------------
+# Este ciclo se repite hasta que el usuario ingrese un precio válido
 while verifica_precio:
 
-    # Solicita el precio del producto
+    # Se solicita el precio del producto (se guarda como texto para validarlo)
     precios_producto = input("Ingrese el precio del producto: ")
 
-    # replace('.', '', 1) permite que el número tenga un punto decimal
-    # isdigit() valida que el resto sean números
-    # float(precios_producto) > 0 valida que el precio sea mayor que 0
+    # Se verifica que el valor sea un número válido (permite un punto decimal)
+    # replace('.', '', 1) elimina un solo punto para validar si el resto son dígitos
     if precios_producto.replace('.', '', 1).isdigit() and float(precios_producto) > 0:
-        precios_producto = float(precios_producto)  # Convierte el valor a número decimal
-        verifica_precio = False  # Sale del ciclo porque el dato es válido
+        
+        # Si es válido, se convierte a número decimal (float)
+        precios_producto = float(precios_producto)
+        
+        # Se cambia la variable de control para salir del ciclo
+        verifica_precio = False
+
     else:
-        # Mensaje de error si el precio no es válido
+        # Si el valor no es válido, se muestra un mensaje de error
         print(f"ven aca, cuando has visto tu que un precio sea '{precios_producto}', colocame un numero valido")
 
 
-# ==============================
+# -----------------------------
 # CÁLCULO DEL COSTO TOTAL
-# ==============================
-
-# Multiplica la cantidad por el precio para obtener el costo total
+# -----------------------------
+# Se multiplica la cantidad del producto por su precio
 costo_total = cantidad_producto * precios_producto
 
 
-# ==============================
-# SALIDA DE INFORMACIÓN
-# ==============================
-
-# Muestra toda la información del producto ingresado
+# -----------------------------
+# SALIDA DE RESULTADOS
+# -----------------------------
+# Se muestra un resumen con el producto, precio, cantidad y total a pagar
 print(f"Producto: {nombre_producto} | Precio: {precios_producto} | Cantidad: {cantidad_producto} | Total: {costo_total}")
