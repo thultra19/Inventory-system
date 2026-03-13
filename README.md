@@ -102,28 +102,6 @@ Esto evita que el usuario ingrese:
 
 ---
 
-## Validación de Precio
-
-Se utiliza `.replace('.', '', 1)` para permitir **un punto decimal** en el número.
-
-```python
-if precios_producto.replace('.', '', 1).isdigit() and float(precios_producto) > 0:
-```
-
-Esto permite valores como:
-
-* `10`
-* `10.5`
-* `99.99`
-
-Pero evita valores inválidos como:
-
-* `abc`
-* `12..5`
-* `-10`
-
----
-
 # 💻 Ejemplo de Ejecución
 
 ```
@@ -132,43 +110,6 @@ Ingrese la cantidad del producto: 3
 Ingrese el precio del producto: 2.5
 
 Producto: Manzana | Precio: 2.5 | Cantidad: 3 | Total: 7.5
-```
-
----
-
-# 📂 Código del Programa
-
-```python
-nombre_producto = str(input("Ingrese el nombre del producto: "))
-
-verifica_cantidad = True
-verifica_precio = True
-
-while verifica_cantidad:
-
-    cantidad_producto = input("Ingrese la cantidad del producto: ")
-
-    if cantidad_producto.isdigit() and int(cantidad_producto) > 0:
-        cantidad_producto = int(cantidad_producto)
-        verifica_cantidad = False
-    else:
-        print(f"ven aca, cuando has visto tu que una cantidad sea '{cantidad_producto}', colocame un numero entero valido")
-
-
-while verifica_precio:
-
-    precios_producto = input("Ingrese el precio del producto: ")
-
-    if precios_producto.replace('.', '', 1).isdigit() and float(precios_producto) > 0:
-        precios_producto = float(precios_producto)
-        verifica_precio = False
-    else:
-        print(f"ven aca, cuando has visto tu que un precio sea '{precios_producto}', colocame un numero valido")
-
-
-costo_total = cantidad_producto * precios_producto
-
-print(f"Producto: {nombre_producto} | Precio: {precios_producto} | Cantidad: {cantidad_producto} | Total: {costo_total}")
 ```
 
 ---
